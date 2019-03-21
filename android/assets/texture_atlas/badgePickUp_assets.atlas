@@ -1,0 +1,125 @@
+
+badgePickUp_assets.png
+size: 512,256
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Picked_Badge0001
+  rotate: false
+  xy: 2, 132
+  size: 65, 63
+  orig: 65, 63
+  offset: 0, 0
+  index: -1
+Picked_Badge0002
+  rotate: false
+  xy: 2, 67
+  size: 65, 63
+  orig: 65, 63
+  offset: 0, 0
+  index: -1
+Picked_Badge0003
+  rotate: false
+  xy: 69, 132
+  size: 65, 63
+  orig: 65, 63
+  offset: 0, 0
+  index: -1
+Picked_Badge0004
+  rotate: false
+  xy: 2, 2
+  size: 65, 63
+  orig: 65, 63
+  offset: 0, 0
+  index: -1
+Picked_Badge0005
+  rotate: false
+  xy: 69, 67
+  size: 65, 63
+  orig: 65, 63
+  offset: 0, 0
+  index: -1
+Picked_Badge0006
+  rotate: false
+  xy: 136, 132
+  size: 65, 63
+  orig: 65, 63
+  offset: 0, 0
+  index: -1
+Picked_Badge0007
+  rotate: false
+  xy: 69, 2
+  size: 65, 63
+  orig: 65, 63
+  offset: 0, 0
+  index: -1
+Picked_Badge0008
+  rotate: false
+  xy: 136, 67
+  size: 65, 63
+  orig: 65, 63
+  offset: 0, 0
+  index: -1
+Picked_Badge0009
+  rotate: false
+  xy: 203, 132
+  size: 65, 63
+  orig: 65, 63
+  offset: 0, 0
+  index: -1
+Picked_Badge0010
+  rotate: false
+  xy: 136, 2
+  size: 65, 63
+  orig: 65, 63
+  offset: 0, 0
+  index: -1
+Picked_Badge0011
+  rotate: false
+  xy: 203, 67
+  size: 65, 63
+  orig: 65, 63
+  offset: 0, 0
+  index: -1
+Picked_Badge0012
+  rotate: false
+  xy: 270, 132
+  size: 65, 63
+  orig: 65, 63
+  offset: 0, 0
+  index: -1
+Picked_Badge0013
+  rotate: false
+  xy: 203, 2
+  size: 65, 63
+  orig: 65, 63
+  offset: 0, 0
+  index: -1
+Picked_Badge0014
+  rotate: false
+  xy: 270, 67
+  size: 65, 63
+  orig: 65, 63
+  offset: 0, 0
+  index: -1
+Picked_Badge0015
+  rotate: false
+  xy: 337, 132
+  size: 65, 63
+  orig: 65, 63
+  offset: 0, 0
+  index: -1
+Picked_Badge0016
+  rotate: false
+  xy: 270, 2
+  size: 65, 63
+  orig: 65, 63
+  offset: 0, 0
+  index: -1
+Picked_Badge0017
+  rotate: false
+  xy: 337, 67
+  size: 65, 63
+  orig: 65, 63
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,167 @@
+
+rock_assets.png
+size: 1024,256
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+FallingRocks0001
+  rotate: false
+  xy: 2, 132
+  size: 63, 63
+  orig: 63, 63
+  offset: 0, 0
+  index: -1
+FallingRocks0002
+  rotate: false
+  xy: 2, 67
+  size: 63, 63
+  orig: 63, 63
+  offset: 0, 0
+  index: -1
+FallingRocks0003
+  rotate: false
+  xy: 67, 132
+  size: 63, 63
+  orig: 63, 63
+  offset: 0, 0
+  index: -1
+FallingRocks0004
+  rotate: false
+  xy: 2, 2
+  size: 63, 63
+  orig: 63, 63
+  offset: 0, 0
+  index: -1
+FallingRocks0005
+  rotate: false
+  xy: 67, 67
+  size: 63, 63
+  orig: 63, 63
+  offset: 0, 0
+  index: -1
+FallingRocks0006
+  rotate: false
+  xy: 132, 132
+  size: 63, 63
+  orig: 63, 63
+  offset: 0, 0
+  index: -1
+FallingRocks0007
+  rotate: false
+  xy: 67, 2
+  size: 63, 63
+  orig: 63, 63
+  offset: 0, 0
+  index: -1
+FallingRocks0008
+  rotate: false
+  xy: 132, 67
+  size: 63, 63
+  orig: 63, 63
+  offset: 0, 0
+  index: -1
+FallingRocks0009
+  rotate: false
+  xy: 197, 132
+  size: 63, 63
+  orig: 63, 63
+  offset: 0, 0
+  index: -1
+FallingRocks0010
+  rotate: false
+  xy: 132, 2
+  size: 63, 63
+  orig: 63, 63
+  offset: 0, 0
+  index: -1
+FallingRocks0011
+  rotate: false
+  xy: 197, 67
+  size: 63, 63
+  orig: 63, 63
+  offset: 0, 0
+  index: -1
+FallingRocks0012
+  rotate: false
+  xy: 262, 132
+  size: 63, 63
+  orig: 63, 63
+  offset: 0, 0
+  index: -1
+FallingRocks0013
+  rotate: false
+  xy: 197, 2
+  size: 63, 63
+  orig: 63, 63
+  offset: 0, 0
+  index: -1
+FallingRocks0014
+  rotate: false
+  xy: 262, 67
+  size: 63, 63
+  orig: 63, 63
+  offset: 0, 0
+  index: -1
+FallingRocks0015
+  rotate: false
+  xy: 327, 132
+  size: 63, 63
+  orig: 63, 63
+  offset: 0, 0
+  index: -1
+FallingRocks0016
+  rotate: false
+  xy: 262, 2
+  size: 63, 63
+  orig: 63, 63
+  offset: 0, 0
+  index: -1
+FallingRocks0017
+  rotate: false
+  xy: 327, 67
+  size: 63, 63
+  orig: 63, 63
+  offset: 0, 0
+  index: -1
+FallingRocks0018
+  rotate: false
+  xy: 392, 132
+  size: 63, 63
+  orig: 63, 63
+  offset: 0, 0
+  index: -1
+FallingRocks0019
+  rotate: false
+  xy: 327, 2
+  size: 63, 63
+  orig: 63, 63
+  offset: 0, 0
+  index: -1
+FallingRocks0020
+  rotate: false
+  xy: 392, 67
+  size: 63, 63
+  orig: 63, 63
+  offset: 0, 0
+  index: -1
+FallingRocks0021
+  rotate: false
+  xy: 457, 132
+  size: 63, 63
+  orig: 63, 63
+  offset: 0, 0
+  index: -1
+FallingRocks0022
+  rotate: false
+  xy: 392, 2
+  size: 63, 63
+  orig: 63, 63
+  offset: 0, 0
+  index: -1
+FallingRocks0023
+  rotate: false
+  xy: 457, 67
+  size: 63, 63
+  orig: 63, 63
+  offset: 0, 0
+  index: -1
