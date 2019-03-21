@@ -1,62 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="80" height="30" tilewidth="32" tileheight="32" backgroundcolor="#9684e6" nextobjectid="20">
+<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="60" height="20" tilewidth="64" tileheight="64" infinite="0" backgroundcolor="#9684e6" nextlayerid="6" nextobjectid="31">
  <tileset firstgid="1" name="bricks" tilewidth="32" tileheight="32" tilecount="630" columns="21">
   <image source="Tiles/bricks_02.jpg" width="700" height="970"/>
  </tileset>
  <tileset firstgid="631" name="metal" tilewidth="32" tileheight="32" tilecount="1032" columns="43">
   <image source="Tiles/metal_06.jpg" width="1400" height="798"/>
  </tileset>
- <layer name="background" width="80" height="30">
+ <tileset firstgid="1663" source="Tiles/Desert.tsx"/>
+ <layer id="4" name="background" width="60" height="20">
   <data encoding="base64" compression="zlib">
-   eJzl2VPfmAUAxuG9s23btm3btm201byabdRs22acUUMNNbuhrn2O5+A6/Z/fvzskVKhQoQlDWMIRnghEJBKRiUJUohGdGMQkFrGJQ1ziERKgZnwSkJBEJCYJSUlGclKQklSkJg1pSUd6MpCRTGQOWDMLWclGdnKQk1zkJg95yUd+ClCQQhSmCEUpRnFKBKxZklKUpgxlKUd5KlCRSlSmClWpRnVqUJNa1KYOdQPWrEd9GtCQRjSmCU1pRnNa0JJWtKYNbWlHezrQkU4Ba3amC13pRnd60JNe9KYPfelHfwYwkEEMZghDGcZXAWsOZwRf8w0jGcVoxjCWcYxnAt/yHROZxGSmMJVpTA9YcwYzmcVs5jCXecxnAQtZxGKWsJRlfM8PLGcFK1kVsOZq1rCWdaxnAxvZxGa2sJVtbGcHO9nFbvawl33sD1jzAAc5xGGOcJRjHOcEJznFac5wlnOc5wI/8hM/80vAmr/yGxe5xGWucJVrXOcGN7nF7/zBbe5wl3v8yV/cD1jzAQ95xN/8w2Oe8JRnPOcFL3nFa97wlne8518+8DFgzU985j++DMIQQhOGsIQjPBGISCQiE4WoRCM6MYhJrJBgNWMTh7jEIz4JSEgiEpOEpCQjOSlISSpSk4a0pCN9wJoZyEgmMpOFrGQjOznISS5yk4e85CM/BShIIQpTJGDNohSjOCUoSSlKU4aylKM8FahIJSpThapUozo1qBmwZi1qU4e61KM+DWhIIxrThKY0ozktaEkrWtOGtrQLWLM9HehIJzrTha50ozs96EkvetOHvvSjPwMYyCAGB6w5hKEM4yuGM4Kv+YaRjGI0YxjLOMYzgW/5jolMYnLAmlOYyjSmM4OZzGI2c5jLPOazgIUsYjFLWMoyvueHgDWXs4KVrGI1a1jLOtazgY1sYjNb2Mo2trODnexid8Cae9jLPvZzgIMc4jBHOMoxjnOCk5ziNGc4yznOcyFgzR/5iZ/5hV/5jYtc4jJXuMo1rnODm9zid/7gNne4G7DmPf7kL+7zgIc84m/+4TFPeMoznvOCl7ziNW94y7uANd/zLx/4yCc+8x9fztEQQhOGsIQjPBGISCQiE4WoRAsdrGZ0YhCTWMQmDnGJR3wSkJBEJCYJSUlGclKQklSkDlgzDWlJR3oykJFMZCYLWclGdnKQk1zkJg95yUd+CgSsWZBCFKYIRSlGcUpQklKUpgxlKUd5KlCRSlSmClUD1qxGdWpQk1rUpg51qUd9GtCQRjSmCU1pRnNa0JJWAWu2pg1taUd7OtCRTnSmC13pRnd60JNe9KYPfelH/4A1/wfInDlp
+   eJztk8EOgCAMQzn524OE/bccPBhCFo3iOuzhXRYoXTfqllIlQ4rTXdSe/uI7akZoeOQ4489yH+LswCozXKUPtPwIfs7es3vr/ZFOufGOdw5oPgj5mnygDTHOWBrSaeSu9sSbGvpyqukFn4REYwfA1oZs
   </data>
  </layer>
- <layer name="platforms" width="80" height="30">
+ <layer id="5" name="platforms" width="60" height="20">
   <data encoding="base64" compression="zlib">
-   eJzt2MdPlEEcxvFlX5YDikqRcjbGht6kKEXQsyj2jhQFBEVAqUvvvXeWBQ3hnzHGgMAZ/glDpHx/Vw5kM+67vOvOk3wOe2Az8zCTmVmbTUdHR0dHR8fXqbIf9wj8N9Ldku5POdLdD92fcqS7P7o/5Uh354zjHoX/Rrq7q/tTjnRXo/tTjpy/33V/ypHz96fuTzly/u4EUH8vmesrvMYb5OAtcpGHfBTgHd6jEEVH9CPn7/lg343fmznpsNnCcAqncQbhiEAkonAW0YhBrMP7Y5Dz956f9pdIH0lIxg3cRApSkYZ03EIGMnHbhP7k/K3z0/6sELm7LPugv1D+9yccansu7tC62eLztglrSSVyd/nlg/6uM98Eh9qeu3Ooq7AQ+g8xf8yeRO4uf73U3yrzXMNvrGMDmxZZJ2ZF7i4XvDTHPb5nX76LtREEOwyLrBOzIneX7P98jZgZubs4PehP9vgu9rAv+52/CYIdRgD3L3eXFQ/mL3v8Ii7hMq4gHldxLYD7k7vLagDP/18jdxf5DaYaNahFHerhRAMa0YRmtKAVbWhHBzrRhW70oBd96McABjGEYYxgFGMYxwQmMYVpzGAWc5iHCwtwY9FuzbHKGyRL3nG4j2w8wEM8wmM8wVM8w3O8MNTf4sX4gBKU4iM+oQyfUY4KVOILvqIK1YY1xypvkFp5x6EeTjSgEU1oRgta0YZ2dKATXehGD3rRh34MYBBDGMYIRjGGcUxgElOYxgxmMYd5uLAANxaxhG8WHesBvR2vJw==
+   eJztlEEKwCAMBD3l4bW03y499NAiMeqaBtmBPZpkEjAlQgghEdnl7wl8oe/a0Hdtovtu8s4oUXy/Xgi3ElF8vfDyLd1v1g01DtHjRW0fiD3dt82VnMba2nzWty2+vc5aL2sP63w9QddDh75jef5TVL0LgP98DA==
   </data>
  </layer>
- <objectgroup name="physics" offsetx="-1" offsety="-1">
-  <object id="2" name="platform_2" type="RectangleMapObject" x="575.647" y="673.941" width="189.196" height="63">
+ <objectgroup id="3" name="physics" offsetx="-1" offsety="-1">
+  <object id="2" name="platform_2" type="RectangleMapObject" x="2172.13" y="768.426" width="323.196" height="63">
    <properties>
     <property name="material" value="ice"/>
    </properties>
   </object>
-  <object id="4" name="platform_3" type="RectangleMapObject" x="799.078" y="608.686" width="515.059" height="63">
+  <object id="4" name="platform_3" type="RectangleMapObject" x="2559.23" y="706.444" width="258.059" height="63">
    <properties>
     <property name="material" value="ice"/>
    </properties>
   </object>
-  <object id="5" name="platform_4" type="Rectangle" x="1407.33" y="607.176" width="63.3529" height="61">
+  <object id="5" name="DeathPit1" type="Rectangle" x="1215.33" y="1281.18" width="227.353" height="61">
    <properties>
     <property name="material" value="ice"/>
    </properties>
   </object>
-  <object id="8" name="platform_1" type="RectangleMapObject" x="290.843" y="766.804" width="250" height="66.2745"/>
-  <object id="9" name="platform_0" type="RectangleMapObject" x="1" y="863.843" width="2557.33" height="32">
+  <object id="8" name="platform_1" type="RectangleMapObject" x="1665.54" y="896.562" width="383.333" height="66.2745"/>
+  <object id="10" name="leftWall" type="RectangleMapObject" x="-16.8788" y="390.394" width="25" height="700">
    <properties>
     <property name="material" value="ice"/>
    </properties>
   </object>
-  <object id="10" name="leftWall" type="RectangleMapObject" x="5" y="195" width="25" height="700">
+  <object id="11" name="rightWall" type="RectangleMapObject" x="3816.29" y="389.303" width="25" height="700">
    <properties>
     <property name="material" value="ice"/>
    </properties>
   </object>
-  <object id="11" name="rightWall" type="RectangleMapObject" x="2527.5" y="195" width="25" height="700">
+  <object id="12" name="DeathPit2" type="RectangleMapObject" x="2553.02" y="1279.32" width="138.314" height="63">
    <properties>
     <property name="material" value="ice"/>
    </properties>
   </object>
-  <object id="12" name="platform_3" type="RectangleMapObject" x="1475.02" y="507.324" width="412.314" height="63">
+  <object id="13" name="Deck Platform" x="0.539091" y="1041.11" width="511.059" height="17.1372">
    <properties>
     <property name="material" value="ice"/>
    </properties>
   </object>
-  <object id="13" x="1889.63" y="482.569" width="447.059" height="29.8039">
-   <properties>
-    <property name="material" value="ice"/>
-   </properties>
+  <object id="21" name="Stairs" x="510" y="1043">
+   <polygon points="0,0 66,37 66,46 -3,8"/>
+  </object>
+  <object id="28" name="Ground1" type="Ground" x="0" y="1088">
+   <polygon points="0,0 768,0 768,64 1088,64 1088,0 1152,0 1152,-64 1280,-64 1280,192 0,192 0,0"/>
+  </object>
+  <object id="29" name="Ground2" type="Ground" x="1408" y="1024">
+   <polygon points="0,0 192,0 192,64 704,64 704,0 768,0 768,-64 1152,-64 1152,256 0,256"/>
+  </object>
+  <object id="30" name="Ground3" type="Ground" x="2688" y="960">
+   <polygon points="0,0 0,320 1152,320 1152,128 320,128 320,64 256,64 256,0"/>
   </object>
  </objectgroup>
 </map>
