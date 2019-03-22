@@ -1,5 +1,7 @@
 package com.group.game.utility;
 
+import com.badlogic.gdx.Gdx;
+
 /**
  * Created by gerard on 23/04/2017.
  */
@@ -39,6 +41,11 @@ public class GameData {
 
     public void setScore(int score) {
         this.score = score;
+    }
+
+    public void addScore(int s) {
+        this.score = this.score + s;
+        Gdx.app.log("TAG", "SCORE = " + this.score);
     }
 
     public void resetGameData(){

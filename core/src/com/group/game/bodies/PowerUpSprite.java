@@ -2,6 +2,7 @@ package com.group.game.bodies;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
+import com.group.game.utility.BonusManager;
 import com.group.game.utility.TweenData;
 import com.group.game.utility.UniversalResource;
 
@@ -18,7 +19,7 @@ public class PowerUpSprite extends AnimatedSprite {
     private float timeCount;
     private boolean displayed = false;
 
-    public boolean isDisplay() {return displayed;}
+    public boolean isDisplayed() {return displayed;}
 
     public PowerUpSprite(String atlasString, Texture t, Vector2 pos) {
         super(atlasString, t, pos);
@@ -49,7 +50,7 @@ public class PowerUpSprite extends AnimatedSprite {
         return ttl;
     }
 
-    private void setDisplayed(boolean d) {
+    public void setDisplayed(boolean d) {
         displayed = d;
     }
 

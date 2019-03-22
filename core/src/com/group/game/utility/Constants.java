@@ -14,9 +14,11 @@ public class Constants {
     //Screen Size
     public static final float VIRTUAL_WIDTH = Gdx.graphics.getWidth();
     public static final float VIRTUAL_HEIGHT = Gdx.graphics.getHeight();
+
     //World to screen scale
     public static final float TILE_SIZE   = 32;
     public static final float UNITSCALE = 1.0f / TILE_SIZE;
+
     //Animation Speed
     public static final float FRAME_DURATION = 1.0f / 30.0f;
     public static final float TIME_STEP=1/60f;
@@ -58,4 +60,12 @@ public class Constants {
     // Collision rectangle width and height
     public static final int COLLISION_RECT_WIDTH = 1;
     public static final int COLLISION_RECT_HEIGHT = 1;
+
+    // Max number of sprites
+    public static final int MAX_BONUS_SPRITES = 5;
+    public static final float MAX_TIME_TO_NEXT_BONUS = 5.0f;
+    public static final String POWER_UP_ATLAS_PATH = "texture_atlas/badge_assets.atlas";
+
+    // PowerUp value
+    public static final int POWERUP_VALUE = 50;
 }
