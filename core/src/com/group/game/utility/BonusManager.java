@@ -24,7 +24,8 @@ public class BonusManager {
     public BonusManager(PlayerCharacter playerCharacter) {
         this.playerCharacter = playerCharacter;
         for(int i = 0; i < bonusCollection.length; i++) {
-            bonusCollection[i] = new PowerUpSprite(POWER_UP_ATLAS_PATH, TINY);
+            // PowerUpSprite requires there to be a string for the power up, texture and a position
+            bonusCollection[i] = new PowerUpSprite(POWER_UP_ATLAS_PATH, TINY, null);
         }
     }
 
@@ -43,7 +44,7 @@ public class BonusManager {
                 if(Intersector.overlaps(ps.getBoundingRectangle(), playerCharacter.getBoundingRectangle())) {
                     handlingCollision = true;
                     GameData.getInstance().addScore(POWERUP_VALUE);
-                    ps.bonusRoutine();
+                    //ps.bonusRoutine();
                 }
             }
         }
@@ -55,7 +56,7 @@ public class BonusManager {
             bonusSpriteToDisplay = (bonusSpriteToDisplay + 1) % bonusCollection.length;
         }
         bonusCollection[bonusSpriteToDisplay].setDisplayed(true);
-        bonusCollection[bonusSpriteToDisplay].startRoutine(calcNextPos());
+        //bonusCollection[bonusSpriteToDisplay].startRoutine(calcNextPos());
     }
 
     private Vector2 calcNextPos() { return Vector2.X;}
