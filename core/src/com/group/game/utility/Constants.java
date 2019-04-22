@@ -61,10 +61,14 @@ public class Constants {
     public static final int COLLISION_RECT_WIDTH = 1;
     public static final int COLLISION_RECT_HEIGHT = 1;
 
-    // Max number of sprites
+    // Sprites
     public static final int MAX_BONUS_SPRITES = 5;
     public static final float MAX_TIME_TO_NEXT_BONUS = 5.0f;
-    public static final String POWER_UP_ATLAS_PATH = "texture_atlas/badge_assets.atlas";
+    public static final float MIN_TIME_TO_NEXT_BONUS = 3.0f;
+    public static final float MIN_POS_TO_NEXT_BONUS = 5.0f;
+    public static final float MAX_POS_TO_NEXT_BONUS = 10.0f;
+    public static final float CLAMP_HEIGHT = 5.0f;
+    public static final String POWER_UP_ATLAS_PATH = "texture_atlas/";
 
     // PowerUp value
     public static final int POWERUP_VALUE = 50;

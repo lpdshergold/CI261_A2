@@ -15,7 +15,10 @@ public class GameData {
     private GameData(){}
 
     public static GameData getInstance(){
-        if(INSTANCE==null){return new GameData();}
+        if(INSTANCE==null) {
+            INSTANCE = new GameData();
+            return INSTANCE;
+        }
         return INSTANCE;
     }
 
