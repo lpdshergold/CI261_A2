@@ -21,9 +21,6 @@ public class PowerUpSprite extends AnimatedSprite {
     private int ttl;
     private float timeCount;
     private boolean displayed = false;
-    private Float[] spawnVectorsX = {10.0f, 20.0f, 30.0f, 40.0f, 50.0f};
-    private Float[] spawnVectorsY = {5.0f, 7.5f, 10.0f, 12.5f, 15.0f};
-    public Vector2 randomSpawnVector;
 
     public boolean isDisplayed() {return displayed;}
 
@@ -60,20 +57,11 @@ public class PowerUpSprite extends AnimatedSprite {
         displayed = d;
     }
 
-    public Vector2 createRandomSpawnVector () {
+    public void startRoutine(Vector2 vector2) {
 
-        float vectorPartX;
-        float vectorPartY;
+    }
 
-        Collections.shuffle(Arrays.asList(spawnVectorsX));
-        Collections.shuffle(Arrays.asList(spawnVectorsY));
-
-        vectorPartX = spawnVectorsX[0];
-        vectorPartY = spawnVectorsY[0];
-
-        randomSpawnVector.add(vectorPartX, vectorPartY);
-
-        return randomSpawnVector;
+    public void bonusRoutine() {
 
     }
 }

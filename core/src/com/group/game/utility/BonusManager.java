@@ -6,6 +6,9 @@ import com.badlogic.gdx.math.Vector2;
 import com.group.game.bodies.PlayerCharacter;
 import com.group.game.bodies.PowerUpSprite;
 
+import java.util.Arrays;
+import java.util.Collections;
+
 import static com.group.game.utility.Constants.MAX_BONUS_SPRITES;
 import static com.group.game.utility.Constants.MAX_TIME_TO_NEXT_BONUS;
 import static com.group.game.utility.Constants.POWERUP_VALUE;
@@ -20,6 +23,9 @@ public class BonusManager {
     private float timeToNextBonus = MAX_TIME_TO_NEXT_BONUS;
     public static boolean handlingCollision = false;
     private Vector2 previousBonusPosition;
+    private Float[] spawnVectorsX = {10.0f, 20.0f, 30.0f, 40.0f, 50.0f};
+    private Float[] spawnVectorsY = {5.0f, 7.5f, 10.0f, 12.5f, 15.0f};
+    public Vector2 randomSpawnVector;
 
     public BonusManager(PlayerCharacter playerCharacter) {
         this.playerCharacter = playerCharacter;
@@ -44,7 +50,7 @@ public class BonusManager {
                 if(Intersector.overlaps(ps.getBoundingRectangle(), playerCharacter.getBoundingRectangle())) {
                     handlingCollision = true;
                     GameData.getInstance().addScore(POWERUP_VALUE);
-                    //ps.bonusRoutine();
+                    ps.bonusRoutine();
                 }
             }
         }
@@ -56,10 +62,23 @@ public class BonusManager {
             bonusSpriteToDisplay = (bonusSpriteToDisplay + 1) % bonusCollection.length;
         }
         bonusCollection[bonusSpriteToDisplay].setDisplayed(true);
-        //bonusCollection[bonusSpriteToDisplay].startRoutine(calcNextPos());
+        bonusCollection[bonusSpriteToDisplay].startRoutine(calcNextPos());
     }
 
-    private Vector2 calcNextPos() { return Vector2.X;}
+    private Vector2 calcNextPos() {
+        float vectorPartX;
+        float vectorPartY;
+
+        Collections.shuffle(Arrays.asList(spawnVectorsX));
+        Collections.shuffle(Arrays.asList(spawnVectorsY));
+
+        vectorPartX = spawnVectorsX[0];
+        vectorPartY = spawnVectorsY[0];
+
+        randomSpawnVector.add(vectorPartX, vectorPartY);
+
+        return randomSpawnVector;
+    }
 
     private void nextBonusTimer(float dt) {}
 }
