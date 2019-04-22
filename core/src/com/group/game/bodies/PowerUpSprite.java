@@ -6,6 +6,9 @@ import com.group.game.utility.BonusManager;
 import com.group.game.utility.TweenData;
 import com.group.game.utility.UniversalResource;
 
+import java.util.Arrays;
+import java.util.Collections;
+
 import aurelienribon.tweenengine.BaseTween;
 import aurelienribon.tweenengine.TweenCallback;
 import aurelienribon.tweenengine.TweenManager;
@@ -18,9 +21,9 @@ public class PowerUpSprite extends AnimatedSprite {
     private int ttl;
     private float timeCount;
     private boolean displayed = false;
- // private Float[] spawnVectorsX;
- // private Float[] spawnVectorsY;
- // private Vector2 randomSpawnVector;
+    private Float[] spawnVectorsX = {10.0f, 20.0f, 30.0f, 40.0f, 50.0f};
+    private Float[] spawnVectorsY = {5.0f, 7.5f, 10.0f, 12.5f, 15.0f};
+    public Vector2 randomSpawnVector;
 
     public boolean isDisplayed() {return displayed;}
 
@@ -57,24 +60,21 @@ public class PowerUpSprite extends AnimatedSprite {
         displayed = d;
     }
 
-    // private Vector2 createRandomSpawnVector () {               --> Creates 2 arrays of possible X positions
-    //                                                                and Y positions, shuffles them and creates
-    //     private float vectorPartX;                                 a Vector2 from element (0) of each.
-    //     private float vectorPartY;
-    //
-    //     spawnVectorsX = {10.0, 20.0, 30.0, 40.0, 50.0};
-    //     spawnVectorsY = {5.0, 7.5, 10.0, 12.5, 15.0};
-    //
-    //     Collections.shuffle(Arrays.asList(spawnVectorsX));     --> requires java.util.Collections
-    //     Collections.shuffle(Arrays.asList(spawnVectorsY));     --> requires java.util.Collections
-    //
-    //     vectorPartX = spawnVectorsX.get(0);
-    //     vectorPartY = spawnVectorsY.get(0);
-    //
-    //     randomSpawnVector.add(vectorPartX, vectorPartY);
-    //
-    //     return randomSpawnVector;
-    // }
+    public Vector2 createRandomSpawnVector () {
 
+        float vectorPartX;
+        float vectorPartY;
+
+        Collections.shuffle(Arrays.asList(spawnVectorsX));
+        Collections.shuffle(Arrays.asList(spawnVectorsY));
+
+        vectorPartX = spawnVectorsX[0];
+        vectorPartY = spawnVectorsY[0];
+
+        randomSpawnVector.add(vectorPartX, vectorPartY);
+
+        return randomSpawnVector;
+
+    }
 }
 
