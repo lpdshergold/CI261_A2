@@ -3,7 +3,9 @@ package com.group.game.utility;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Intersector;
 import com.badlogic.gdx.math.Vector2;
+import com.group.game.bodies.IPowerUpSprite;
 import com.group.game.bodies.PlayerCharacter;
+import com.group.game.bodies.PowerDownSprite;
 import com.group.game.bodies.PowerUpSprite;
 
 import static com.group.game.utility.Constants.CLAMP_HEIGHT;
@@ -13,11 +15,17 @@ import static com.group.game.utility.Constants.MAX_TIME_TO_NEXT_BONUS;
 import static com.group.game.utility.Constants.MIN_POS_TO_NEXT_BONUS;
 import static com.group.game.utility.Constants.MIN_TIME_TO_NEXT_BONUS;
 import static com.group.game.utility.Constants.POWERUP_VALUE;
-import static com.group.game.utility.Constants.POWER_UP_ATLAS_PATH;
+import static com.group.game.utility.Constants.POWER_DOWN_BAD_BOOST_PATH;
+import static com.group.game.utility.Constants.POWER_DOWN_BARREL_PATH;
+import static com.group.game.utility.Constants.POWER_DOWN_ENEMY_PATH;
+import static com.group.game.utility.Constants.POWER_DOWN_ROCK_PATH;
+import static com.group.game.utility.Constants.POWER_UP_BADGE_PATH;
+import static com.group.game.utility.Constants.POWER_UP_GOOD_BOOST_PATH;
+import static com.group.game.utility.Constants.POWER_UP_PLAYER_PATH;
 import static com.group.game.utility.Constants.TINY;
 
 public class BonusManager {
-    PowerUpSprite[] bonusCollection = new PowerUpSprite[MAX_BONUS_SPRITES];
+    IPowerUpSprite[] bonusCollection = new PowerUpSprite[MAX_BONUS_SPRITES];
     PlayerCharacter playerCharacter;
     private int bonusSpriteToDisplay;
     private float timeCount;
@@ -29,7 +37,21 @@ public class BonusManager {
     public BonusManager(PlayerCharacter playerCharacter) {
         this.playerCharacter = playerCharacter;
         for(int i = 0; i < bonusCollection.length; i++) {
-            bonusCollection[i] = new PowerUpSprite(POWER_UP_ATLAS_PATH, TINY, null);
+            if(i == 0) {
+                bonusCollection[i] = new PowerUpSprite(POWER_UP_BADGE_PATH, TINY, new Vector2(250, 100 * i));
+            } else if(i == 1) {
+                bonusCollection[i] = new PowerDownSprite(POWER_DOWN_ROCK_PATH, TINY, new Vector2(250, 100 * i));
+            } else if (i == 2) {
+                bonusCollection[i] = new PowerUpSprite(POWER_UP_GOOD_BOOST_PATH, TINY, new Vector2(250, 100 * i));
+            } else if (i == 3) {
+                bonusCollection[i] = new PowerDownSprite(POWER_DOWN_BARREL_PATH, TINY, new Vector2(250, 100 * i));
+            } else if (i == 4) {
+                bonusCollection[i] = new PowerUpSprite(POWER_UP_PLAYER_PATH, TINY, new Vector2(250, 100 * i));
+            }else if (i == 5) {
+                bonusCollection[i] = new PowerDownSprite(POWER_DOWN_BAD_BOOST_PATH, TINY, new Vector2(100, 100 * i));
+            }else {
+                bonusCollection[i] = new PowerDownSprite(POWER_DOWN_ENEMY_PATH, TINY, new Vector2(100, 100 * i));
+            }
         }
     }
 
@@ -42,7 +64,7 @@ public class BonusManager {
     }
 
     public void update(float stateTime) {
-        for(PowerUpSprite ps : bonusCollection) {
+        for(IPowerUpSprite ps : bonusCollection) {
             ps.update(stateTime);
             if(ps.isDisplayed() && !handlingCollision) {
                 if(Intersector.overlaps(ps.getBoundingRectangle(), playerCharacter.getBoundingRectangle())) {
@@ -60,7 +82,11 @@ public class BonusManager {
             bonusSpriteToDisplay = (bonusSpriteToDisplay + 1) % bonusCollection.length;
         }
         bonusCollection[bonusSpriteToDisplay].setDisplayed(true);
-        bonusCollection[bonusSpriteToDisplay].startRoutine(calcNextPos());
+
+
+        // Don't need to calculate the next position as of yet - maybe implement closer to the deadline if we have time
+        // Using i in bonusCollection[i] to calculate the y position for the bonus sprites
+        // bonusCollection[bonusSpriteToDisplay].startRoutine(calcNextPos());
     }
 
     private Vector2 calcNextPos(){

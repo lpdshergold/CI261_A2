@@ -103,4 +103,12 @@ public class PlayerCharacter extends AnimatedSprite implements IWorldObject {
     public void reaction() {
 
     }
+
+    // Get the current position of the player - used in BonusManager
+    public Vector2 getWorldPosition() {
+        // position gets the players current position
+        Vector2 position = playerBody.getPosition();
+        // Return the vectors of the players position
+        return position;
+    }
 }

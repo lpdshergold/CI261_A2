@@ -62,14 +62,23 @@ public class Constants {
     public static final int COLLISION_RECT_HEIGHT = 1;
 
     // Sprites
-    public static final int MAX_BONUS_SPRITES = 5;
+    public static final int MAX_BONUS_SPRITES = 10;
     public static final float MAX_TIME_TO_NEXT_BONUS = 5.0f;
     public static final float MIN_TIME_TO_NEXT_BONUS = 3.0f;
     public static final float MIN_POS_TO_NEXT_BONUS = 5.0f;
     public static final float MAX_POS_TO_NEXT_BONUS = 10.0f;
     public static final float CLAMP_HEIGHT = 5.0f;
-    public static final String POWER_UP_ATLAS_PATH = "texture_atlas/";
+
+    // Different sprites that will appear
+    public static final String POWER_UP_BADGE_PATH = "texture_atlas/badge_assets.atlas";
+    public static final String POWER_UP_GOOD_BOOST_PATH = "texture_atlas/boost2_assets.atlas";
+    public static final String POWER_UP_PLAYER_PATH = "texture_atlas/player_assets.atlas";
+    public static final String POWER_DOWN_BARREL_PATH = "texture_atlas/barrel_assets.atlas";
+    public static final String POWER_DOWN_BAD_BOOST_PATH = "texture_atlas/boost1_assets.atlas";
+    public static final String POWER_DOWN_ENEMY_PATH = "texture_atlas/enemy_assets.atlas";
+    public static final String POWER_DOWN_ROCK_PATH = "texture_atlas/rock_assets.atlas";
 
     // PowerUp value
     public static final int POWERUP_VALUE = 50;
+    public static final int POWERDOWN_VALUE = -50;
 }

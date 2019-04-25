@@ -6,13 +6,12 @@ import com.badlogic.gdx.math.Vector2;
 import com.group.game.utility.BonusManager;
 import com.group.game.utility.TweenData;
 import com.group.game.utility.UniversalResource;
-import com.group.game.Sound.soundLink;
 
 import aurelienribon.tweenengine.BaseTween;
 import aurelienribon.tweenengine.TweenCallback;
 import aurelienribon.tweenengine.TweenManager;
 
-public class PowerUpSprite extends AnimatedSprite implements IPowerUpSprite {
+public class PowerDownSprite extends AnimatedSprite implements IPowerUpSprite {
     private TweenData tweenData;
     private TweenManager tweenManager;
     private TweenCallback callback;
@@ -23,7 +22,12 @@ public class PowerUpSprite extends AnimatedSprite implements IPowerUpSprite {
 
     public boolean isDisplayed() {return displayed;}
 
-    public PowerUpSprite(String atlasString, Texture t, Vector2 pos) {
+    @Override
+    public void draw(SpriteBatch sb) {
+        this.draw(sb);
+    }
+
+    public PowerDownSprite(String atlasString, Texture t, Vector2 pos) {
         super(atlasString, t, pos);
         // Alpha set a 0 means the sprite cannot be seen
         this.setAlpha(0);
@@ -37,10 +41,6 @@ public class PowerUpSprite extends AnimatedSprite implements IPowerUpSprite {
             }
         };
         initTweenData();
-    }
-
-    public void draw(SpriteBatch sb) {
-        this.draw(sb);
     }
 
     private void initTweenData() {
@@ -60,9 +60,8 @@ public class PowerUpSprite extends AnimatedSprite implements IPowerUpSprite {
         displayed = d;
     }
 
-    public void startRoutine() {
-        // Tween routines are used to create animations once something has been collided with - i.e. jumps slightly in the air, spins and falls off the screen
-        // Like Goombas in Super Mario when they are killed
+    public void startRoutine(Vector2 vector2) {
+
     }
 
     public void bonusRoutine() {
