@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="2019.03.13" orientation="orthogonal" renderorder="right-down" width="60" height="20" tilewidth="64" tileheight="64" infinite="0" backgroundcolor="#9684e6" nextlayerid="6" nextobjectid="51">
+<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="60" height="20" tilewidth="64" tileheight="64" infinite="0" backgroundcolor="#9684e6" nextlayerid="6" nextobjectid="54">
  <tileset firstgid="1" name="bricks" tilewidth="32" tileheight="32" tilecount="630" columns="21">
   <image source="Tiles/bricks_02.jpg" width="700" height="970"/>
  </tileset>
@@ -14,26 +14,21 @@
  </layer>
  <layer id="5" name="platforms" width="60" height="20">
   <data encoding="base64" compression="zlib">
-   eJztlEEKwCAMBD3l4bW03y499NAiMeqaBtmBPZpkEjAlQgghEdnl7wl8oe/a0Hdtovtu8s4oUXy/Xgi3ElF8vfDyLd1v1g01DtHjRW0fiD3dt82VnMba2nzWty2+vc5aL2sP63w9QddDh75jef5TVL0LgP98DA==
+   eJztkkEKgDAMBHvKw1X02+JRKW2sSww6A3NsmmVTCgAAZGSxtzeIhbzfhry5mOzsU7LkveZSZKuRJW8UUXlr/ak79Mz/W7+rtY2i17/iLo5u546bc3ZrP+/bu46g+GN0X0S1O0WAhZo=
   </data>
  </layer>
  <objectgroup id="3" name="physics" offsetx="-1" offsety="-1">
-  <object id="2" name="platform_2" type="RectangleMapObject" x="2172.13" y="768.426" width="323.196" height="63">
+  <object id="2" name="platform_2" type="RectangleMapObject" x="2172.13" y="704.426" width="323.196" height="63">
    <properties>
     <property name="material" value="ice"/>
    </properties>
   </object>
-  <object id="4" name="platform_3" type="RectangleMapObject" x="2559.23" y="706.444" width="258.059" height="63">
+  <object id="4" name="platform_3" type="RectangleMapObject" x="2557.23" y="640.444" width="258.059" height="63">
    <properties>
     <property name="material" value="ice"/>
    </properties>
   </object>
-  <object id="5" name="DeathPit1" type="Rectangle" x="1215.33" y="1281.18" width="227.353" height="61">
-   <properties>
-    <property name="material" value="ice"/>
-   </properties>
-  </object>
-  <object id="8" name="platform_1" type="RectangleMapObject" x="1665.54" y="896.562" width="383.333" height="66.2745"/>
+  <object id="8" name="platform_1" type="RectangleMapObject" x="1665.54" y="828.562" width="383.333" height="66.2745"/>
   <object id="10" name="leftWall" type="RectangleMapObject" x="-16.8788" y="390.394" width="25" height="700">
    <properties>
     <property name="material" value="ice"/>
@@ -44,7 +39,7 @@
     <property name="material" value="ice"/>
    </properties>
   </object>
-  <object id="12" name="DeathPit2" type="RectangleMapObject" x="2553.02" y="1279.32" width="138.314" height="63">
+  <object id="12" name="Ground14" type="RectangleMapObject" x="2553.02" y="1025.32" width="138.314" height="63">
    <properties>
     <property name="material" value="ice"/>
    </properties>
@@ -57,20 +52,22 @@
   <object id="21" name="Stairs" x="510" y="1043">
    <polygon points="0,0 66,37 66,46 -3,8"/>
   </object>
-  <object id="31" name="Ground1" x="0" y="1088" width="768" height="64"/>
+  <object id="31" name="Ground1" x="514" y="1088" width="254" height="64"/>
   <object id="32" name="Ground2" x="768" y="1152" width="320" height="64"/>
   <object id="33" name="Ground3" x="1088" y="1088" width="64" height="64"/>
   <object id="34" name="Ground5" x="1152" y="1024" width="128" height="64"/>
-  <object id="39" name="pitWall1" x="1216" y="1088" width="64" height="192"/>
-  <object id="40" name="pitWall2" x="1408" y="1088" width="64" height="192"/>
   <object id="41" name="Ground6" x="1408" y="1024" width="192" height="64"/>
   <object id="43" name="Ground7" x="1600" y="1088" width="512" height="64"/>
   <object id="44" name="Ground8" x="2112" y="1024" width="64" height="64"/>
   <object id="45" name="Ground9" x="2176" y="960" width="384" height="64"/>
-  <object id="46" name="pitWall3" x="2496" y="1024" width="64" height="256"/>
-  <object id="47" name="pitWall4" x="2688" y="1024" width="64" height="256"/>
   <object id="48" name="Ground10" x="2688" y="960" width="256" height="64"/>
   <object id="49" name="Ground11" x="2944" y="1024" width="64" height="64"/>
   <object id="50" name="Ground12" x="3008" y="1088" width="832" height="64"/>
+  <object id="52" name="Ground13" x="1280" y="1086" width="128" height="64"/>
+  <object id="53" name="platform_4" type="RectangleMapObject" x="3259.23" y="832.444" width="324.059" height="63">
+   <properties>
+    <property name="material" value="ice"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>

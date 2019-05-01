@@ -54,7 +54,7 @@ public class BonusManager {
             }
         }
     }
-
+    
     public void draw(SpriteBatch batch) {
         for(int i = 0; i < bonusCollection.length; i++) {
             if(bonusCollection[i].isDisplayed()) {
@@ -70,7 +70,7 @@ public class BonusManager {
                 if(Intersector.overlaps(ps.getBoundingRectangle(), playerCharacter.getBoundingRectangle())) {
                     handlingCollision = true;
                     GameData.getInstance().addScore(POWERUP_VALUE);
-                    ps.bonusRoutine();
+                    ps.destroyRoutine();
                 }
             }
         }

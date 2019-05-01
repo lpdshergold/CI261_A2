@@ -60,11 +60,11 @@ public class PowerDownSprite extends AnimatedSprite implements IPowerUpSprite {
         displayed = d;
     }
 
-    public void startRoutine(Vector2 vector2) {
+    public void startRoutine() {
 
     }
 
-    public void bonusRoutine() {
+    public void destroyRoutine() {
 
     }
 }

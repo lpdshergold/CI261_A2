@@ -16,7 +16,7 @@ public class Constants {
     public static final float VIRTUAL_HEIGHT = Gdx.graphics.getHeight();
 
     //World to screen scale
-    public static final float TILE_SIZE   = 32;
+    public static final float TILE_SIZE   = 32; // Needs to be changed to 64 once character sprite is in game
     public static final float UNITSCALE = 1.0f / TILE_SIZE;
 
     //Animation Speed

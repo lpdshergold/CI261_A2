@@ -31,6 +31,7 @@ public class CameraManager {
         position = new Vector2();
 
     }
+
     public void update () {
         if (!hasTarget()) return;
         if(cameraTrackX()) {

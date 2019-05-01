@@ -16,6 +16,6 @@ public interface IPowerUpSprite {
 
     public Rectangle getBoundingRectangle();
 
-    public void bonusRoutine();
+    public void destroyRoutine();
 
 }

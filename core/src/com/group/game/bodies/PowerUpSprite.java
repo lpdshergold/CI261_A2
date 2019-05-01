@@ -65,7 +65,7 @@ public class PowerUpSprite extends AnimatedSprite implements IPowerUpSprite {
         // Like Goombas in Super Mario when they are killed
     }
 
-    public void bonusRoutine() {
+    public void destroyRoutine() {
 
     }
 }
