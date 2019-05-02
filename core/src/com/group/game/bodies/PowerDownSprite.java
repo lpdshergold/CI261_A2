@@ -3,7 +3,6 @@ package com.group.game.bodies;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
-import com.group.game.utility.BonusManager;
 import com.group.game.utility.TweenData;
 import com.group.game.utility.UniversalResource;
 
@@ -11,7 +10,7 @@ import aurelienribon.tweenengine.BaseTween;
 import aurelienribon.tweenengine.TweenCallback;
 import aurelienribon.tweenengine.TweenManager;
 
-public class PowerDownSprite extends AnimatedSprite implements IPowerUpSprite {
+public class PowerDownSprite extends AnimatedSprite {
     private TweenData tweenData;
     private TweenManager tweenManager;
     private TweenCallback callback;
@@ -19,13 +18,9 @@ public class PowerDownSprite extends AnimatedSprite implements IPowerUpSprite {
     private int ttl;
     private float timeCount;
     private boolean displayed = false;
+    public static boolean handlingCollision = false;
 
     public boolean isDisplayed() {return displayed;}
-
-    @Override
-    public void draw(SpriteBatch sb) {
-        this.draw(sb);
-    }
 
     public PowerDownSprite(String atlasString, Texture t, Vector2 pos) {
         super(atlasString, t, pos);
@@ -37,7 +32,7 @@ public class PowerDownSprite extends AnimatedSprite implements IPowerUpSprite {
             public void onEvent(int type, BaseTween<?> source) {
                 setDisplayed(false);
                 initTweenData();
-                BonusManager.handlingCollision = false;
+                handlingCollision = false;
             }
         };
         initTweenData();
