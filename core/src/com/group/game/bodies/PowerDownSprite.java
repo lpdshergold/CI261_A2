@@ -15,6 +15,10 @@ public class PowerDownSprite extends AnimatedSprite {
     private TweenManager tweenManager;
     private TweenCallback callback;
     public static boolean handlingCollision = true;
+    public static boolean barrelCol = true;
+    public static boolean badBoostCol = true;
+    public static boolean enemyCol = true;
+    public static boolean rockCol = true;
 
     public PowerDownSprite(String atlasString, Texture t, Vector2 pos) {
         super(atlasString, t, pos);
@@ -38,8 +42,17 @@ public class PowerDownSprite extends AnimatedSprite {
         tweenManager = UniversalResource.getInstance().tweenManager; //tweenManager
     }
 
+    // Called in GameScreen by PowerDownSprites to run the correct routine
     public void runningRoutines(String name) {
-
+        if(name.equals("barrelDestroy")) {
+            barrelDestroyRoutine();
+        } else if(name.equals("badBoostDestroy")) {
+            badBoostDestroyRoutine();
+        } else if (name.equals("enemyDestroy")) {
+            enemyDestroyRoutine();
+        } else if(name.equals("rockDestroy")) {
+            rockDestroyRoutine();
+        }
     }
 
     @Override
@@ -52,11 +65,19 @@ public class PowerDownSprite extends AnimatedSprite {
         this.setRotation(tweenData.getRotation());
     }
 
-    public void startRoutine() {
+    public void barrelDestroyRoutine() {
 
     }
 
-    public void destroyRoutine() {
+    public void badBoostDestroyRoutine() {
+
+    }
+
+    public void enemyDestroyRoutine() {
+
+    }
+
+    public void rockDestroyRoutine() {
 
     }
 }

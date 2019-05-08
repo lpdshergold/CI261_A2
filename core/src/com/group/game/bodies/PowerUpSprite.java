@@ -51,9 +51,14 @@ public class PowerUpSprite extends AnimatedSprite {
         tweenManager = UniversalResource.getInstance().tweenManager; //tweenManager
     }
 
+    // Called in GameScreen by PowerUpSprites to run the correct routine
     public void runningRoutines(String name) {
         if(name.equals("badgeDestroy")) {
             badgeDestroyRoutine();
+        } else if(name.equals("boostDestroy")) {
+            boostDestroyRoutine();
+        } else if (name.equals("playerDestroy")) {
+            playerDestroyRoutine();
         }
     }
 
@@ -84,7 +89,11 @@ public class PowerUpSprite extends AnimatedSprite {
                 .start(tweenManager);
     }
 
-    public void destroyRoutine() {
+    public void boostDestroyRoutine() {
+
+    }
+
+    public void playerDestroyRoutine() {
 
     }
 }

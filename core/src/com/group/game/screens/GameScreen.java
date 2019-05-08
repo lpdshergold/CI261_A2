@@ -104,13 +104,19 @@ public class GameScreen extends ScreenAdapter {
     @Override
     public void render(float delta) {
         frameDelta += delta;
+
+        // PowerUpSprites
         badge.update(frameDelta);
         boost.update(frameDelta);
         player.update(frameDelta);
+
+        // PowerDownSprites
         barrel.update(frameDelta);
         badBoost.update(frameDelta);
         enemy.update(frameDelta);
         rock.update(frameDelta);
+
+        // Player and gameHUD
         smif.update(frameDelta);
         gameHUD.update(delta);
 
@@ -126,53 +132,41 @@ public class GameScreen extends ScreenAdapter {
                 badge.runningRoutines("badgeDestroy");
             }
         } else if(Intersector.overlaps(boost.getBoundingRectangle(), smif.getBoundingRectangle())) {
-            // Check if handling collision equals true
             if(boost.boostCol == true) {
-                // Once powerUp is hit once, turn false
                 boost.boostCol = false;
                 GameData.getInstance().addScore(POWERUP_BOOST_VALUE);
-                boost.runningRoutines("badgeDestroy");
+                boost.runningRoutines("boostDestroy");
             }
         } else if(Intersector.overlaps(player.getBoundingRectangle(), smif.getBoundingRectangle())) {
-            // Check if handling collision equals true
             if(player.playerCol == true) {
-                // Once powerUp is hit once, turn false
                 player.playerCol = false;
                 GameData.getInstance().addScore(POWERUP_PLAYER_VALUE);
-                player.runningRoutines("badgeDestroy");
+                player.runningRoutines("playerDestroy");
             }
         }
         else if(Intersector.overlaps(barrel.getBoundingRectangle(), smif.getBoundingRectangle())) {
-            // Check if handling collision equals true
-            if(barrel.handlingCollision == true) {
-                // Once powerUp is hit once, turn false
-                barrel.handlingCollision = false;
+            if(barrel.barrelCol == true) {
+                barrel.barrelCol = false;
                 GameData.getInstance().addScore(POWERDOWN_BARREL_VALUE);
-                barrel.destroyRoutine();
+                barrel.runningRoutines("barrelDestroy");
             }
         } else if(Intersector.overlaps(badBoost.getBoundingRectangle(), smif.getBoundingRectangle())) {
-            // Check if handling collision equals true
-            if(badBoost.handlingCollision == true) {
-                // Once powerUp is hit once, turn false
-                badBoost.handlingCollision = false;
+            if(badBoost.badBoostCol == true) {
+                badBoost.badBoostCol = false;
                 GameData.getInstance().addScore(POWERDOWN_BAD_BOOST_VALUE);
-                badBoost.destroyRoutine();
+                badBoost.runningRoutines("badBoostDestroy");
             }
         } else if(Intersector.overlaps(enemy.getBoundingRectangle(), smif.getBoundingRectangle())) {
-            // Check if handling collision equals true
-            if(enemy.handlingCollision == true) {
-                // Once powerUp is hit once, turn false
-                enemy.handlingCollision = false;
+            if(enemy.enemyCol == true) {
+                enemy.enemyCol = false;
                 GameData.getInstance().addScore(POWERDOWN_ENEMY_VALUE);
-                enemy.destroyRoutine();
+                enemy.runningRoutines("enemyDestroy");
             }
         } else if(Intersector.overlaps(rock.getBoundingRectangle(), smif.getBoundingRectangle())) {
-            // Check if handling collision equals true
-            if(rock.handlingCollision == true) {
-                // Once powerUp is hit once, turn false
-                rock.handlingCollision = false;
+            if(rock.rockCol == true) {
+                rock.rockCol = false;
                 GameData.getInstance().addScore(POWERDOWN_ROCK_VALUE);
-                rock.destroyRoutine();
+                rock.runningRoutines("rockDestroy");
             }
         }
 
