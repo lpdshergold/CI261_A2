@@ -72,11 +72,11 @@ public class HUD implements Disposable {
     private void createScoreAndTimer(){
         countdownLabel = new Label(String.format("%03d", worldTimer),
                 new Label.LabelStyle(new BitmapFont(), Color.RED));
-        scoreLabel = new Label(String.format("%03d", score),
+        scoreLabel = new Label(String.format("%03d", GameData.getInstance().getScore()),
                 new Label.LabelStyle(new BitmapFont(), Color.BLUE));
         timeLabel = new Label("COUNTDOWN",
                 new Label.LabelStyle(new BitmapFont(), Color.RED));
-        linkLabel = new Label("POINTS",
+        linkLabel = new Label("SCORE",
                 new Label.LabelStyle(new BitmapFont(), Color.BLUE));
         //labels added to table using padding and expandX
         tableData.add(linkLabel).padBottom(5).padLeft(120);
@@ -167,6 +167,10 @@ public class HUD implements Disposable {
                 game.setScreen(new EndScreen());
             }
             countdownLabel.setText(String.format("%03d", worldTimer));
+
+            // Update score on screen
+            // Gets data from GameData
+            scoreLabel.setText(String.format("%03d", GameData.getInstance().getScore()));
             timeCount = 0;
         }
     }

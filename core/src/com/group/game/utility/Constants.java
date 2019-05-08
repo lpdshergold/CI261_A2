@@ -82,6 +82,10 @@ public class Constants {
     public static final Vector2 PUp_BADGE_START = new Vector2(5,10);
     public static final Vector2 PUp_BOOST_START = new Vector2(20,15);
     public static final Vector2 PUp_PLAYER_START = new Vector2(40,5);
+    public static final Vector2 PDown_BARREL_START = new Vector2(100, 100);
+    public static final Vector2 PDown_BAD_BOOST_START = new Vector2(100, 100);
+    public static final Vector2 PDown_ENEMY_START = new Vector2(100, 100);
+    public static final Vector2 PDown_ROCK_START = new Vector2(100, 100);
 
     // PowerUp value
     public static final int POWERUP_BADGE_VALUE = 50;
@@ -89,5 +93,8 @@ public class Constants {
     public static final int POWERUP_PLAYER_VALUE = 100;
 
     // PowerDown value
-    public static final int POWERDOWN_VALUE = -50;
+    public static final int POWERDOWN_BARREL_VALUE = -25;
+    public static final int POWERDOWN_BAD_BOOST_VALUE = -25;
+    public static final int POWERDOWN_ENEMY_VALUE = -100;
+    public static final int POWERDOWN_ROCK_VALUE = -25;
 }

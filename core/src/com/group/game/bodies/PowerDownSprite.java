@@ -14,25 +14,17 @@ public class PowerDownSprite extends AnimatedSprite {
     private TweenData tweenData;
     private TweenManager tweenManager;
     private TweenCallback callback;
-    private float animationTime;
-    private int ttl;
-    private float timeCount;
-    private boolean displayed = false;
-    public static boolean handlingCollision = false;
-
-    public boolean isDisplayed() {return displayed;}
+    public static boolean handlingCollision = true;
 
     public PowerDownSprite(String atlasString, Texture t, Vector2 pos) {
         super(atlasString, t, pos);
         // Alpha set a 0 means the sprite cannot be seen
-        this.setAlpha(0);
-        ttl = setTimeToLive(0);
+        this.setAlpha(1);
         callback = new TweenCallback() {
             @Override
             public void onEvent(int type, BaseTween<?> source) {
-                setDisplayed(false);
                 initTweenData();
-                handlingCollision = false;
+                handlingCollision = true;
             }
         };
         initTweenData();
@@ -46,13 +38,18 @@ public class PowerDownSprite extends AnimatedSprite {
         tweenManager = UniversalResource.getInstance().tweenManager; //tweenManager
     }
 
-    private int setTimeToLive(int t) {
-        ttl = t;
-        return ttl;
+    public void runningRoutines(String name) {
+
     }
 
-    public void setDisplayed(boolean d) {
-        displayed = d;
+    @Override
+    public void update(float stateTime) {
+        super.update(stateTime);
+        this.setX(tweenData.getXy().x);
+        this.setY(tweenData.getXy().y);
+        this.setColor(tweenData.getColor());
+        this.setScale(tweenData.getScale());
+        this.setRotation(tweenData.getRotation());
     }
 
     public void startRoutine() {
