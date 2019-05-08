@@ -1,12 +1,11 @@
 package com.group.game.bodies;
 
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Animation;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.group.game.utility.TweenData;
 import com.group.game.utility.TweenDataAccessor;
 import com.group.game.utility.UniversalResource;
+import com.group.game.Sound.soundLink;
 
 import aurelienribon.tweenengine.BaseTween;
 import aurelienribon.tweenengine.Timeline;
@@ -69,13 +68,17 @@ public class PowerUpSprite extends AnimatedSprite {
     }
 
     public void badgeDestroyRoutine() {
+        soundLink.play(1);
         Timeline.createSequence()
-                .push(Tween.to(tweenData, TweenDataAccessor.TYPE_POS, 20)
+                .push(Tween.to(tweenData, TweenDataAccessor.TYPE_POS, 20f)
                     .target(getX(), getY() + 2f))
+                .push(Tween.to(tweenData, TweenDataAccessor.TYPE_ROTATION, 10f)
+                    .target(getRotation() - 25))
+                .push(Tween.to(tweenData, TweenDataAccessor.TYPE_POS, 30f)
+                .target(getX(), getY() - 15f))
                 .setCallback(new TweenCallback() {
                     @Override
                     public void onEvent(int type, BaseTween<?> source) {
-
                     }
                 })
                 .start(tweenManager);

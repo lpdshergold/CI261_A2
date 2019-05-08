@@ -11,7 +11,7 @@ public class soundLink {
         soundKeys = new IntMap<Sound>();
 
         //Create new sounds variables
-        Sound areYouPrepared = Gdx.audio.newSound(Gdx.files.internal("sfx/badgePickUp.mp3"));
+        Sound areYouPrepared = Gdx.audio.newSound(Gdx.files.internal("sfx/AreYouPreparedPartner.mp3"));
         Sound badgePickUp = Gdx.audio.newSound(Gdx.files.internal("sfx/badgePickUp.mp3"));
         Sound fallingRocks = Gdx.audio.newSound(Gdx.files.internal("sfx/fallingRocks.mp3"));
         Sound gameOverPartner = Gdx.audio.newSound(Gdx.files.internal("sfx/gameOverPartner.mp3"));
@@ -21,7 +21,7 @@ public class soundLink {
 
         //Assigning sounds to a specific key
         soundKeys.put(1, areYouPrepared);
-        soundKeys.put(2, badgePickUp);
+        soundKeys.put(1, badgePickUp);
         soundKeys.put(3, fallingRocks);
         soundKeys.put(4, gameOverPartner);
         soundKeys.put(5, getReadyToRide);
