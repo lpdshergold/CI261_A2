@@ -85,7 +85,7 @@ public class Constants {
     public static final Vector2 PDown_BARREL_START = new Vector2(100, 100);
     public static final Vector2 PDown_BAD_BOOST_START = new Vector2(100, 100);
     public static final Vector2 PDown_ENEMY_START = new Vector2(100, 100);
-    public static final Vector2 PDown_ROCK_START = new Vector2(100, 100);
+    public static final Vector2 PDown_ROCK_START = new Vector2(20, 6);
 
     // PowerUp value
     public static final int POWERUP_BADGE_VALUE = 50;

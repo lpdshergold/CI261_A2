@@ -44,6 +44,7 @@ import static com.group.game.utility.Constants.PUp_BOOST_START;
 import static com.group.game.utility.Constants.PUp_PLAYER_START;
 import static com.group.game.utility.Constants.SMALL;
 import static com.group.game.utility.Constants.START_POSITION;
+import static com.group.game.utility.Constants.TINY;
 import static com.group.game.utility.Constants.UNITSCALE;
 import static com.group.game.utility.Constants.VIRTUAL_HEIGHT;
 import static com.group.game.utility.Constants.VIRTUAL_WIDTH;
@@ -82,7 +83,7 @@ public class GameScreen extends ScreenAdapter {
         orthogonalTiledMapRenderer.setView(game.camera);
         if(!WorldManager.isInitialised()){WorldManager.initialise(game,tiledMap);}
         //player
-        smif = new PlayerCharacter(PLAYER_ATLAS_PATH,SMALL,START_POSITION);
+        smif = new PlayerCharacter(PLAYER_ATLAS_PATH,TINY,START_POSITION);
 
         // PowerUpSprite
         badge = new PowerUpSprite(POWER_UP_BADGE_PATH, SMALL, PUp_BADGE_START);

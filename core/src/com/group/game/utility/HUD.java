@@ -156,6 +156,8 @@ public class HUD implements Disposable {
     }
 
     public void update(float dt) {
+        // Score gets updated whenever the player has collected score points
+        score = GameData.getInstance().getScore();
         timeCount += dt;
         if (timeCount >= 1) {
             if (worldTimer > 0) {
@@ -164,7 +166,8 @@ public class HUD implements Disposable {
                 timeUp = true;
                 GameData.getInstance().setScore(score);
                 GameData.getInstance().setTime(worldTimer);
-                game.setScreen(new EndScreen());
+                // When calling new EndScreen, the score is passed through for data
+                game.setScreen(new EndScreen(score));
             }
             countdownLabel.setText(String.format("%03d", worldTimer));
 

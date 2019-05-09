@@ -4,11 +4,15 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.group.game.utility.TweenData;
+import com.group.game.utility.TweenDataAccessor;
 import com.group.game.utility.UniversalResource;
 
 import aurelienribon.tweenengine.BaseTween;
+import aurelienribon.tweenengine.Timeline;
+import aurelienribon.tweenengine.Tween;
 import aurelienribon.tweenengine.TweenCallback;
 import aurelienribon.tweenengine.TweenManager;
+import com.group.game.Sound.soundLink;
 
 public class PowerDownSprite extends AnimatedSprite {
     private TweenData tweenData;
@@ -66,7 +70,18 @@ public class PowerDownSprite extends AnimatedSprite {
     }
 
     public void barrelDestroyRoutine() {
+        Timeline.createSequence()
+                .push(Tween.to(tweenData, TweenDataAccessor.TYPE_ROTATION, 30f)
+                    .target(getRotation() - 360))
+                .push(Tween.to(tweenData, TweenDataAccessor.TYPE_SCALE, 40f)
+                    .target(getScaleX() - 1, getScaleY() - 1))
+                .setCallback(new TweenCallback() {
+                    @Override
+                    public void onEvent(int type, BaseTween<?> source) {
 
+                    }
+                })
+        .start(tweenManager);
     }
 
     public void badBoostDestroyRoutine() {
@@ -78,7 +93,25 @@ public class PowerDownSprite extends AnimatedSprite {
     }
 
     public void rockDestroyRoutine() {
+        soundLink.play(1);
+        Timeline.createSequence()
+                .push(Tween.to(tweenData, TweenDataAccessor.TYPE_POS, 10f)
+                        .target(getX() + 1, getY()))
+                .push(Tween.to(tweenData, TweenDataAccessor.TYPE_POS, 10f)
+                        .target(getX() - 1, getY()))
+                .push(Tween.to(tweenData, TweenDataAccessor.TYPE_POS, 10f)
+                        .target(getX() + 1, getY()))
+                .push(Tween.to(tweenData, TweenDataAccessor.TYPE_POS, 10f)
+                        .target(getX() - 1, getY()))
+                .push(Tween.to(tweenData, TweenDataAccessor.TYPE_POS, 50f)
+                        .target(getX(), getY() - 25))
+                .setCallback(new TweenCallback() {
+                    @Override
+                    public void onEvent(int type, BaseTween<?> source) {
 
+                    }
+                })
+        .start(tweenManager);
     }
 }
 

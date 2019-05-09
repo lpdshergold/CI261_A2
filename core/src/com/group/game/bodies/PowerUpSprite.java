@@ -76,7 +76,7 @@ public class PowerUpSprite extends AnimatedSprite {
     public void badgeDestroyRoutine() {
         soundLink.play(1);
         Timeline.createSequence()
-                .push(Tween.to(tweenData, TweenDataAccessor.TYPE_POS, 20f)
+                .push(Tween.to(tweenData, TweenDataAccessor.TYPE_POS, 30f)
                     .target(getX(), getY() + 2f))
                 .push(Tween.to(tweenData, TweenDataAccessor.TYPE_ROTATION, 10f)
                     .target(getRotation() - 25))
