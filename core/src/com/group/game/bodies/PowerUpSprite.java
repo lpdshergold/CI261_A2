@@ -72,6 +72,7 @@ public class PowerUpSprite extends AnimatedSprite {
         this.setRotation(tweenData.getRotation());
     }
 
+    // Destroy routine for badge sprite
     public void badgeDestroyRoutine() {
         soundLink.play(1);
         Timeline.createSequence()
@@ -86,15 +87,44 @@ public class PowerUpSprite extends AnimatedSprite {
                     public void onEvent(int type, BaseTween<?> source) {
                     }
                 })
-                .start(tweenManager);
+        .start(tweenManager);
     }
 
+    // Destroy routine for boost sprite
     public void boostDestroyRoutine() {
+        Timeline.createSequence()
+                .push(Tween.to(tweenData, TweenDataAccessor.TYPE_ROTATION, 25f)
+                    .target(getRotation() - 25))
+                .push(Tween.to(tweenData, TweenDataAccessor.TYPE_ROTATION, 25f)
+                        .target(getRotation() + 25))
+                .push(Tween.to(tweenData, TweenDataAccessor.TYPE_ROTATION, 25f)
+                        .target(getRotation() - 25))
+                .push(Tween.to(tweenData, TweenDataAccessor.TYPE_POS, 25f)
+                    .target(getX(), getY() + 10))
+                .setCallback(new TweenCallback() {
+                    @Override
+                    public void onEvent(int type, BaseTween<?> source) {
 
+                    }
+                })
+        .start(tweenManager);
     }
 
+    // Destroy routine for player sprite
     public void playerDestroyRoutine() {
+        soundLink.play(6);
+        Timeline.createSequence()
+                .push(Tween.to(tweenData, TweenDataAccessor.TYPE_ROTATION, 75f)
+                    .target(getRotation() + 360))
+                .push(Tween.to(tweenData, TweenDataAccessor.TYPE_SCALE, 50f)
+                    .target(getScaleX() - 1, getScaleY() - 1))
+                .setCallback(new TweenCallback() {
+                    @Override
+                    public void onEvent(int type, BaseTween<?> source) {
 
+                    }
+                })
+        .start(tweenManager);
     }
 }
 
