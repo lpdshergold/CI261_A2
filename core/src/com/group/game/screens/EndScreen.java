@@ -25,18 +25,16 @@ public class EndScreen extends ScreenAdapter {
     private Label countdownLabel, headerLabel, linkLabel;
     private static Label scoreLabel;
 
-    public EndScreen(){
+    public EndScreen(int score){
         stage = new Stage(new FitViewport(VIRTUAL_WIDTH/3, VIRTUAL_HEIGHT/3));
         Gdx.input.setInputProcessor(stage);
         tableData = new Table();
         tableData.setFillParent(true);
-        createScoreAndTimer();
+        createScoreAndTimer(score);
         stage.addActor(tableData);
     }
 
-    public void show() {
-
-    }
+    public void show() { }
 
     public void resize(int width, int height) {
         stage.getViewport().update(width, height, true);
@@ -47,11 +45,12 @@ public class EndScreen extends ScreenAdapter {
         stage.draw();
     }
 
-    private void createScoreAndTimer(){
+    private void createScoreAndTimer(int value){
         //define labels using the String, and a Label style consisting of a font and color
         headerLabel = new Label("LEVEL ONE SCORE", new Label.LabelStyle(new BitmapFont(), Color.LIME));
-        scoreLabel = new Label(String.format("%03d", GameData.getInstance().getScore()), new Label.LabelStyle(new BitmapFont(), Color.YELLOW));
-        linkLabel = new Label("POINTS", new Label.LabelStyle(new BitmapFont(), Color.YELLOW));
+        // Score data has come from score variable within HUD.java
+        scoreLabel = new Label(String.format("%03d", value), new Label.LabelStyle(new BitmapFont(), Color.YELLOW));
+        linkLabel = new Label("SCORE", new Label.LabelStyle(new BitmapFont(), Color.YELLOW));
         //add labels to table
         tableData.add(headerLabel).padLeft(150);
         tableData.row();

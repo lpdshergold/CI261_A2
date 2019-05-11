@@ -1,46 +1,46 @@
 package com.group.game.bodies;
 
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
-import com.group.game.utility.BonusManager;
 import com.group.game.utility.TweenData;
+import com.group.game.utility.TweenDataAccessor;
 import com.group.game.utility.UniversalResource;
 import com.group.game.Sound.soundLink;
 
 import aurelienribon.tweenengine.BaseTween;
+import aurelienribon.tweenengine.Timeline;
+import aurelienribon.tweenengine.Tween;
 import aurelienribon.tweenengine.TweenCallback;
 import aurelienribon.tweenengine.TweenManager;
 
-public class PowerUpSprite extends AnimatedSprite implements IPowerUpSprite {
+public class PowerUpSprite extends AnimatedSprite {
     private TweenData tweenData;
     private TweenManager tweenManager;
     private TweenCallback callback;
-    private float animationTime;
-    private int ttl;
-    private float timeCount;
-    private boolean displayed = false;
+    public static boolean handlingCollision = true;
+    public static boolean badgeCol = true;
+    public static boolean boostCol = true;
+    public static boolean playerCol = true;
 
-    public boolean isDisplayed() {return displayed;}
 
     public PowerUpSprite(String atlasString, Texture t, Vector2 pos) {
         super(atlasString, t, pos);
         // Alpha set a 0 means the sprite cannot be seen
-        this.setAlpha(0);
-        ttl = setTimeToLive(0);
+        this.setAlpha(1);
+        this.setPosition(pos.x, pos.y);
         callback = new TweenCallback() {
             @Override
             public void onEvent(int type, BaseTween<?> source) {
-                setDisplayed(false);
                 initTweenData();
-                BonusManager.handlingCollision = false;
+                handlingCollision = true;
             }
         };
         initTweenData();
     }
 
-    public void draw(SpriteBatch sb) {
-        this.draw(sb);
+    private TweenData getTweenData()
+    {
+        return tweenData;
     }
 
     private void initTweenData() {
@@ -51,22 +51,80 @@ public class PowerUpSprite extends AnimatedSprite implements IPowerUpSprite {
         tweenManager = UniversalResource.getInstance().tweenManager; //tweenManager
     }
 
-    private int setTimeToLive(int t) {
-        ttl = t;
-        return ttl;
+    // Called in GameScreen by PowerUpSprites to run the correct routine
+    public void runningRoutines(String name) {
+        if(name.equals("badgeDestroy")) {
+            badgeDestroyRoutine();
+        } else if(name.equals("boostDestroy")) {
+            boostDestroyRoutine();
+        } else if (name.equals("playerDestroy")) {
+            playerDestroyRoutine();
+        }
     }
 
-    public void setDisplayed(boolean d) {
-        displayed = d;
+    @Override
+    public void update(float stateTime) {
+        super.update(stateTime);
+        this.setX(tweenData.getXy().x);
+        this.setY(tweenData.getXy().y);
+        this.setColor(tweenData.getColor());
+        this.setScale(tweenData.getScale());
+        this.setRotation(tweenData.getRotation());
     }
 
-    public void startRoutine() {
-        // Tween routines are used to create animations once something has been collided with - i.e. jumps slightly in the air, spins and falls off the screen
-        // Like Goombas in Super Mario when they are killed
+    // Destroy routine for badge sprite
+    public void badgeDestroyRoutine() {
+        soundLink.play(1);
+        Timeline.createSequence()
+                .push(Tween.to(tweenData, TweenDataAccessor.TYPE_POS, 30f)
+                    .target(getX(), getY() + 2f))
+                .push(Tween.to(tweenData, TweenDataAccessor.TYPE_ROTATION, 10f)
+                    .target(getRotation() - 25))
+                .push(Tween.to(tweenData, TweenDataAccessor.TYPE_POS, 30f)
+                .target(getX(), getY() - 15f))
+                .setCallback(new TweenCallback() {
+                    @Override
+                    public void onEvent(int type, BaseTween<?> source) {
+                    }
+                })
+        .start(tweenManager);
     }
 
-    public void destroyRoutine() {
+    // Destroy routine for boost sprite
+    public void boostDestroyRoutine() {
+        Timeline.createSequence()
+                .push(Tween.to(tweenData, TweenDataAccessor.TYPE_ROTATION, 25f)
+                    .target(getRotation() - 25))
+                .push(Tween.to(tweenData, TweenDataAccessor.TYPE_ROTATION, 25f)
+                        .target(getRotation() + 25))
+                .push(Tween.to(tweenData, TweenDataAccessor.TYPE_ROTATION, 25f)
+                        .target(getRotation() - 25))
+                .push(Tween.to(tweenData, TweenDataAccessor.TYPE_POS, 25f)
+                    .target(getX(), getY() + 10))
+                .setCallback(new TweenCallback() {
+                    @Override
+                    public void onEvent(int type, BaseTween<?> source) {
 
+                    }
+                })
+        .start(tweenManager);
+    }
+
+    // Destroy routine for player sprite
+    public void playerDestroyRoutine() {
+        soundLink.play(6);
+        Timeline.createSequence()
+                .push(Tween.to(tweenData, TweenDataAccessor.TYPE_ROTATION, 75f)
+                    .target(getRotation() + 360))
+                .push(Tween.to(tweenData, TweenDataAccessor.TYPE_SCALE, 50f)
+                    .target(getScaleX() - 1, getScaleY() - 1))
+                .setCallback(new TweenCallback() {
+                    @Override
+                    public void onEvent(int type, BaseTween<?> source) {
+
+                    }
+                })
+        .start(tweenManager);
     }
 }
 

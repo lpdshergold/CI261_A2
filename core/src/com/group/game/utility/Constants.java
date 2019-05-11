@@ -69,7 +69,7 @@ public class Constants {
     public static final float MAX_POS_TO_NEXT_BONUS = 10.0f;
     public static final float CLAMP_HEIGHT = 5.0f;
 
-    // Different sprites that will appear
+    // Different sprites that will appear (powerup and powerdown)
     public static final String POWER_UP_BADGE_PATH = "texture_atlas/badge_assets.atlas";
     public static final String POWER_UP_GOOD_BOOST_PATH = "texture_atlas/boost2_assets.atlas";
     public static final String POWER_UP_PLAYER_PATH = "texture_atlas/player_assets.atlas";
@@ -78,7 +78,23 @@ public class Constants {
     public static final String POWER_DOWN_ENEMY_PATH = "texture_atlas/enemy_assets.atlas";
     public static final String POWER_DOWN_ROCK_PATH = "texture_atlas/rock_assets.atlas";
 
+    // Different vector position for each powerup and powerdown sprites
+    public static final Vector2 PUp_BADGE_START = new Vector2(5,10);
+    public static final Vector2 PUp_BOOST_START = new Vector2(20,15);
+    public static final Vector2 PUp_PLAYER_START = new Vector2(40,5);
+    public static final Vector2 PDown_BARREL_START = new Vector2(100, 100);
+    public static final Vector2 PDown_BAD_BOOST_START = new Vector2(100, 100);
+    public static final Vector2 PDown_ENEMY_START = new Vector2(100, 100);
+    public static final Vector2 PDown_ROCK_START = new Vector2(20, 6);
+
     // PowerUp value
-    public static final int POWERUP_VALUE = 50;
-    public static final int POWERDOWN_VALUE = -50;
+    public static final int POWERUP_BADGE_VALUE = 50;
+    public static final int POWERUP_BOOST_VALUE = 75;
+    public static final int POWERUP_PLAYER_VALUE = 100;
+
+    // PowerDown value
+    public static final int POWERDOWN_BARREL_VALUE = -25;
+    public static final int POWERDOWN_BAD_BOOST_VALUE = -25;
+    public static final int POWERDOWN_ENEMY_VALUE = -100;
+    public static final int POWERDOWN_ROCK_VALUE = -25;
 }

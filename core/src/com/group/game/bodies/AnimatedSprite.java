@@ -10,6 +10,8 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 
+import com.group.game.Sound.soundLink;
+
 import java.util.Comparator;
 
 import static com.group.game.utility.Constants.COLLISION_RECT_HEIGHT;
@@ -28,6 +30,7 @@ public abstract class AnimatedSprite extends Sprite {
     protected Animation animation;
     protected Animation.PlayMode playmode;
     private TextureAtlas atlas;
+    private soundLink soundLink;
 
     // Collision data
     private Rectangle collisionRectangle;
@@ -38,6 +41,8 @@ public abstract class AnimatedSprite extends Sprite {
         this.setY(pos.y);
         playmode = Animation.PlayMode.NORMAL;
         initAtlas(atlasString);
+        // Instance of soundLink to call sounds in PowerUp/DownSprite
+        soundLink = new soundLink();
 
         // Create collision rectangle in constructor
         createCollisionRect();
