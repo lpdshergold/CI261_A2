@@ -13,6 +13,9 @@ import aurelienribon.tweenengine.Tween;
 import aurelienribon.tweenengine.TweenCallback;
 import aurelienribon.tweenengine.TweenManager;
 
+// import java.util.Arrays;      (part of the unused, random spawn method)
+// import java.util.Collections; (part of the unused, random spawn method)
+
 public class PowerUpSprite extends AnimatedSprite {
     private TweenData tweenData;
     private TweenManager tweenManager;
@@ -22,6 +25,26 @@ public class PowerUpSprite extends AnimatedSprite {
     public static boolean boostCol = true;
     public static boolean playerCol = true;
 
+    // private Float[] spawnVectorsX = {10.0f, 20.0f, 30.0f, 40.0f, 50.0f}; (part of the unused, random spawn method)
+    // private Float[] spawnVectorsY = {5.0f, 7.5f, 10.0f, 12.5f, 15.0f};   "
+    // public Vector2 randomSpawnVector;                                    "
+    //                                                                      "
+    // public Vector2 createRandomSpawnVector () {                          "
+    //                                                                      "
+    //     float vectorPartX;                                               "
+    //     float vectorPartY;                                               "
+    //                                                                      "
+    //     Collections.shuffle(Arrays.asList(spawnVectorsX));               "
+    //     Collections.shuffle(Arrays.asList(spawnVectorsY));               "
+    //                                                                      "
+    //     vectorPartX = spawnVectorsX[0];                                  "
+    //     vectorPartY = spawnVectorsY[0];                                  "
+    //                                                                      "
+    //     randomSpawnVector.add(vectorPartX, vectorPartY);                 "
+    //                                                                      "
+    //     return randomSpawnVector;                                        "
+    //                                                                      "
+    // }                                                                    (part of the unused, random spawn method)
 
     public PowerUpSprite(String atlasString, Texture t, Vector2 pos) {
         super(atlasString, t, pos);
