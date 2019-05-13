@@ -21,7 +21,7 @@ public class soundLink {
 
         //Assigning sounds to a specific key
         soundKeys.put(1, areYouPrepared);
-        soundKeys.put(1, badgePickUp);
+        soundKeys.put(2, badgePickUp);
         soundKeys.put(3, fallingRocks);
         soundKeys.put(4, gameOverPartner);
         soundKeys.put(5, getReadyToRide);

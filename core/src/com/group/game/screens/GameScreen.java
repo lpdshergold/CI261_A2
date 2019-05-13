@@ -85,16 +85,28 @@ public class GameScreen extends ScreenAdapter {
         //player
         smif = new PlayerCharacter(PLAYER_ATLAS_PATH,TINY,START_POSITION);
 
-        // PowerUpSprite
+        // PowerUpSprite + routine to shrink the sprites
         badge = new PowerUpSprite(POWER_UP_BADGE_PATH, SMALL, PUp_BADGE_START);
-        boost = new PowerUpSprite(POWER_UP_GOOD_BOOST_PATH, SMALL, PUp_BOOST_START);
-        player = new PowerUpSprite(POWER_UP_PLAYER_PATH, SMALL, PUp_PLAYER_START);
+        badge.runningRoutines("shrink");
 
-        // PowerDownSprite
+        boost = new PowerUpSprite(POWER_UP_GOOD_BOOST_PATH, SMALL, PUp_BOOST_START);
+        boost.runningRoutines("shrink");
+
+        player = new PowerUpSprite(POWER_UP_PLAYER_PATH, SMALL, PUp_PLAYER_START);
+        player.runningRoutines("shrink");
+
+        // PowerDownSprite + routine to shrink the sprites
         barrel = new PowerDownSprite(POWER_DOWN_BARREL_PATH, SMALL, PDown_BARREL_START);
+        barrel.runningRoutines("shrink");
+
         badBoost = new PowerDownSprite(POWER_DOWN_BAD_BOOST_PATH, SMALL, PDown_BAD_BOOST_START);
+        badBoost.runningRoutines("shrink");
+
         enemy = new PowerDownSprite(POWER_DOWN_ENEMY_PATH, SMALL, PDown_ENEMY_START);
+        enemy.runningRoutines("shrink");
+
         rock = new PowerDownSprite(POWER_DOWN_ROCK_PATH, SMALL, PDown_ROCK_START);
+        rock.runningRoutines("shrink");
 
 
         cameraManager = new CameraManager(game.camera,tiledMap);

@@ -82,6 +82,8 @@ public class PowerUpSprite extends AnimatedSprite {
             boostDestroyRoutine();
         } else if (name.equals("playerDestroy")) {
             playerDestroyRoutine();
+        } else if (name.equals("shrink")) {
+            shrinkSprite();
         }
     }
 
@@ -95,9 +97,22 @@ public class PowerUpSprite extends AnimatedSprite {
         this.setRotation(tweenData.getRotation());
     }
 
+    public void shrinkSprite() {
+        Timeline.createSequence()
+                .push(Tween.to(tweenData, TweenDataAccessor.TYPE_SCALE, 0f)
+                    .target(getScaleX() - 0.3f, getScaleY() - 0.3f))
+                .setCallback(new TweenCallback() {
+                    @Override
+                    public void onEvent(int type, BaseTween<?> source) {
+
+                    }
+                })
+                .start(tweenManager);
+    }
+
     // Destroy routine for badge sprite
     public void badgeDestroyRoutine() {
-        soundLink.play(1);
+        soundLink.play(2);
         Timeline.createSequence()
                 .push(Tween.to(tweenData, TweenDataAccessor.TYPE_POS, 30f)
                     .target(getX(), getY() + 2f))
@@ -140,7 +155,7 @@ public class PowerUpSprite extends AnimatedSprite {
                 .push(Tween.to(tweenData, TweenDataAccessor.TYPE_ROTATION, 75f)
                     .target(getRotation() + 360))
                 .push(Tween.to(tweenData, TweenDataAccessor.TYPE_SCALE, 50f)
-                    .target(getScaleX() - 1, getScaleY() - 1))
+                    .target(getScaleX() - 0.7f, getScaleY() - 0.7f))
                 .setCallback(new TweenCallback() {
                     @Override
                     public void onEvent(int type, BaseTween<?> source) {

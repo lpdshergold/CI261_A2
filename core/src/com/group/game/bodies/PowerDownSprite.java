@@ -56,6 +56,8 @@ public class PowerDownSprite extends AnimatedSprite {
             enemyDestroyRoutine();
         } else if(name.equals("rockDestroy")) {
             rockDestroyRoutine();
+        } else if(name.equals("shrink")) {
+            shrinkSprite();
         }
     }
 
@@ -67,6 +69,20 @@ public class PowerDownSprite extends AnimatedSprite {
         this.setColor(tweenData.getColor());
         this.setScale(tweenData.getScale());
         this.setRotation(tweenData.getRotation());
+    }
+
+
+    public void shrinkSprite() {
+        Timeline.createSequence()
+                .push(Tween.to(tweenData, TweenDataAccessor.TYPE_SCALE, 0f)
+                        .target(getScaleX() - 0.3f, getScaleY() - 0.3f))
+                .setCallback(new TweenCallback() {
+                    @Override
+                    public void onEvent(int type, BaseTween<?> source) {
+
+                    }
+                })
+                .start(tweenManager);
     }
 
     public void barrelDestroyRoutine() {
@@ -85,15 +101,49 @@ public class PowerDownSprite extends AnimatedSprite {
     }
 
     public void badBoostDestroyRoutine() {
+        Timeline.createSequence()
+                .push(Tween.to(tweenData, TweenDataAccessor.TYPE_POS, 10f)
+                        .target(getX() + 1, getY()))
+                .push(Tween.to(tweenData, TweenDataAccessor.TYPE_POS, 10f)
+                        .target(getX() - 1, getY()))
+                .push(Tween.to(tweenData, TweenDataAccessor.TYPE_POS, 10f)
+                        .target(getX() + 1, getY()))
+                .push(Tween.to(tweenData, TweenDataAccessor.TYPE_POS, 10f)
+                        .target(getX() - 1, getY()))
+                .push(Tween.to(tweenData, TweenDataAccessor.TYPE_POS, 50f)
+                        .target(getX(), getY() - 25))
+                .setCallback(new TweenCallback() {
+                    @Override
+                    public void onEvent(int type, BaseTween<?> source) {
 
+                    }
+                })
+                .start(tweenManager);
     }
 
     public void enemyDestroyRoutine() {
+        Timeline.createSequence()
+                .push(Tween.to(tweenData, TweenDataAccessor.TYPE_POS, 10f)
+                        .target(getX() + 1, getY()))
+                .push(Tween.to(tweenData, TweenDataAccessor.TYPE_POS, 10f)
+                        .target(getX() - 1, getY()))
+                .push(Tween.to(tweenData, TweenDataAccessor.TYPE_POS, 10f)
+                        .target(getX() + 1, getY()))
+                .push(Tween.to(tweenData, TweenDataAccessor.TYPE_POS, 10f)
+                        .target(getX() - 1, getY()))
+                .push(Tween.to(tweenData, TweenDataAccessor.TYPE_POS, 50f)
+                        .target(getX(), getY() - 25))
+                .setCallback(new TweenCallback() {
+                    @Override
+                    public void onEvent(int type, BaseTween<?> source) {
 
+                    }
+                })
+                .start(tweenManager);
     }
 
     public void rockDestroyRoutine() {
-        soundLink.play(1);
+        soundLink.play(3);
         Timeline.createSequence()
                 .push(Tween.to(tweenData, TweenDataAccessor.TYPE_POS, 10f)
                         .target(getX() + 1, getY()))
