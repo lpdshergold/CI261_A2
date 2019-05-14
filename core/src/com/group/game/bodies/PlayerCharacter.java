@@ -10,6 +10,7 @@ import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.group.game.physics.WorldManager;
 import com.group.game.utility.CurrentDirection;
 import com.group.game.utility.IWorldObject;
+import com.group.game.Sound.soundLink;
 
 import static com.group.game.utility.Constants.DENSITY;
 import static com.group.game.utility.Constants.FORCE_X;
@@ -46,6 +47,9 @@ public class PlayerCharacter extends AnimatedSprite implements IWorldObject {
         playerBody.setUserData(this);
         playerBody.setFixedRotation(true);
         playerBody.createFixture(getFixtureDef(DENSITY,FRICTION,RESTITUTION));
+
+        // Plays "Are you prepared partner" when the player has been built
+        soundLink.play(1);
     }
 
     @Override

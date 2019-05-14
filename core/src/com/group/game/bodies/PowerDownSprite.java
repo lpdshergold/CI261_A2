@@ -1,6 +1,7 @@
 package com.group.game.bodies;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.group.game.utility.TweenData;
@@ -90,11 +91,11 @@ public class PowerDownSprite extends AnimatedSprite {
                 .push(Tween.to(tweenData, TweenDataAccessor.TYPE_ROTATION, 30f)
                     .target(getRotation() - 360))
                 .push(Tween.to(tweenData, TweenDataAccessor.TYPE_SCALE, 40f)
-                    .target(getScaleX() - 1, getScaleY() - 1))
+                    .target(getScaleX() - 0.7f, getScaleY() - 0.7f))
                 .setCallback(new TweenCallback() {
                     @Override
                     public void onEvent(int type, BaseTween<?> source) {
-
+                        setAnimation(Animation.PlayMode.NORMAL);
                     }
                 })
         .start(tweenManager);
@@ -115,28 +116,23 @@ public class PowerDownSprite extends AnimatedSprite {
                 .setCallback(new TweenCallback() {
                     @Override
                     public void onEvent(int type, BaseTween<?> source) {
-
+                        setAnimation(Animation.PlayMode.NORMAL);
                     }
                 })
                 .start(tweenManager);
     }
 
     public void enemyDestroyRoutine() {
+        soundLink.play(6);
         Timeline.createSequence()
-                .push(Tween.to(tweenData, TweenDataAccessor.TYPE_POS, 10f)
-                        .target(getX() + 1, getY()))
-                .push(Tween.to(tweenData, TweenDataAccessor.TYPE_POS, 10f)
-                        .target(getX() - 1, getY()))
-                .push(Tween.to(tweenData, TweenDataAccessor.TYPE_POS, 10f)
-                        .target(getX() + 1, getY()))
-                .push(Tween.to(tweenData, TweenDataAccessor.TYPE_POS, 10f)
-                        .target(getX() - 1, getY()))
-                .push(Tween.to(tweenData, TweenDataAccessor.TYPE_POS, 50f)
-                        .target(getX(), getY() - 25))
+                .push(Tween.to(tweenData, TweenDataAccessor.TYPE_ROTATION, 50f)
+                        .target(getRotation() -359))
+                .push(Tween.to(tweenData, TweenDataAccessor.TYPE_SCALE, 50f)
+                        .target(getScaleX() -0.7f, getScaleY() - 0.7f))
                 .setCallback(new TweenCallback() {
                     @Override
                     public void onEvent(int type, BaseTween<?> source) {
-
+                        setAnimation(Animation.PlayMode.NORMAL);
                     }
                 })
                 .start(tweenManager);
@@ -158,7 +154,7 @@ public class PowerDownSprite extends AnimatedSprite {
                 .setCallback(new TweenCallback() {
                     @Override
                     public void onEvent(int type, BaseTween<?> source) {
-
+                        setAnimation(Animation.PlayMode.NORMAL);
                     }
                 })
         .start(tweenManager);

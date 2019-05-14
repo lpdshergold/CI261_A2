@@ -1,6 +1,7 @@
 package com.group.game.bodies;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.math.Vector2;
 import com.group.game.utility.TweenData;
 import com.group.game.utility.TweenDataAccessor;
@@ -123,6 +124,7 @@ public class PowerUpSprite extends AnimatedSprite {
                 .setCallback(new TweenCallback() {
                     @Override
                     public void onEvent(int type, BaseTween<?> source) {
+                        setAnimation(Animation.PlayMode.NORMAL);
                     }
                 })
         .start(tweenManager);
@@ -130,6 +132,7 @@ public class PowerUpSprite extends AnimatedSprite {
 
     // Destroy routine for boost sprite
     public void boostDestroyRoutine() {
+        soundLink.play(2);
         Timeline.createSequence()
                 .push(Tween.to(tweenData, TweenDataAccessor.TYPE_ROTATION, 25f)
                     .target(getRotation() - 25))
@@ -142,7 +145,7 @@ public class PowerUpSprite extends AnimatedSprite {
                 .setCallback(new TweenCallback() {
                     @Override
                     public void onEvent(int type, BaseTween<?> source) {
-
+                        setAnimation(Animation.PlayMode.NORMAL);
                     }
                 })
         .start(tweenManager);
@@ -159,7 +162,7 @@ public class PowerUpSprite extends AnimatedSprite {
                 .setCallback(new TweenCallback() {
                     @Override
                     public void onEvent(int type, BaseTween<?> source) {
-
+                        setAnimation(Animation.PlayMode.NORMAL);
                     }
                 })
         .start(tweenManager);

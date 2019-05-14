@@ -46,6 +46,11 @@ public abstract class AnimatedSprite extends Sprite {
 
         // Create collision rectangle in constructor
         createCollisionRect();
+
+        // Set animations to be looping - called to stop in PowerDownSprite and PowerUpSprite
+        Array<TextureAtlas.AtlasRegion> regions = new Array<TextureAtlas.AtlasRegion>(atlas.getRegions());
+        regions.sort(new RegionComparator());
+        animation = new Animation(FRAME_DURATION, regions, Animation.PlayMode.LOOP);
     }
 
     private void createCollisionRect() {
@@ -81,5 +86,11 @@ public abstract class AnimatedSprite extends Sprite {
             return region1.name.compareTo(region2.name);
         }
     }
+
+    // Set animation to be called from power sprite classes to change the animation type
+    public void setAnimation(Animation.PlayMode pm) {
+        animation.setPlayMode(pm);
+    }
+
 
 }

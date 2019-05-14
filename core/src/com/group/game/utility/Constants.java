@@ -80,12 +80,12 @@ public class Constants {
 
     // Different vector position for each powerup and powerdown sprites
     public static final Vector2 PUp_BADGE_START = new Vector2(5,10);
-    public static final Vector2 PUp_BOOST_START = new Vector2(20,15);
+    public static final Vector2 PUp_BOOST_START = new Vector2(35,14);
     public static final Vector2 PUp_PLAYER_START = new Vector2(40,5);
-    public static final Vector2 PDown_BARREL_START = new Vector2(100, 100);
+    public static final Vector2 PDown_BARREL_START = new Vector2(50, 5);
     public static final Vector2 PDown_BAD_BOOST_START = new Vector2(100, 100);
-    public static final Vector2 PDown_ENEMY_START = new Vector2(100, 100);
-    public static final Vector2 PDown_ROCK_START = new Vector2(20, 6);
+    public static final Vector2 PDown_ENEMY_START = new Vector2(55, 14);
+    public static final Vector2 PDown_ROCK_START = new Vector2(20, 5);
 
     // PowerUp value
     public static final int POWERUP_BADGE_VALUE = 50;
